@@ -82,7 +82,6 @@ def actualizar_estudiante(no_control):
 @app.route('/estudiantes/<no_control>', methods=['DELETE'])
 def eliminar_estudiante(no_control):
     estudiante = Estudiante.query.get(no_control)
-    if estudiante is None:
         return jsonify({'mensaje': 'Estudiante no encontrado'}), 404
     db.session.delete(estudiante)
     db.session.commit()
